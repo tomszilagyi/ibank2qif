@@ -1,0 +1,3 @@
+1. Download account history files as XML from internetbank.
+2. run make, which will generate QIF files.
+3. import QIF files into GnuCash.
