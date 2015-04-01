@@ -9,3 +9,6 @@ bp_%.qif: bp_%.csv
 bp_%.csv: bp_%.xls
 	sh ./xls2csv_bb.sh < $< > $@
 	sh ./cropfile.sh $@ 3 3
+
+kh_%.qif: kh_%.csv
+	awk -f tab2qif_kh.awk < $< > $@

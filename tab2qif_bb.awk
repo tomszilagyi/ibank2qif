@@ -1,11 +1,11 @@
-# convert tab-separated files to QIF for importing into Gnu Cash
+# convert tab-separated files to QIF for importing into GnuCash
 # see http://en.wikipedia.org/wiki/QIF
 #
-# 1. download checking account history as XLS from internetbank.
+# 1. download checking account history as XLS from Budapest Bank internetbank.
 # 2. convert with xls2csv.sh to UTF-8 encoded Tab separated file.
 # 3. via cropfile.sh remove first 3 and last 3 lines of file
-# 4. $ awk -f tab2qif.awk < folyoszamla_YYYY-MM.tab > folyoszamla_YYYY-MM.qif
-# 5. import result into Gnu Cash
+# 4. $ awk -f tab2qif.awk < bb_ACCOUNT_YYYY_MM.tab > bb_ACCOUNT_YYYY_MM.qif
+# 5. import result into GnuCash
 
 BEGIN {
 	print "!Type:Bank"
@@ -45,9 +45,6 @@ BEGIN {
 	if (memo == 1) {
 		printf "\n"
 	}
-#	memostr = sprintf("M%s%s%s%s\n", $2, $7, $8, $9);
-#	while (1) {if (sub(/[ \t]{2,}/, " ", memostr) == 0) break;}
-#	printf memostr
 
 	print "^"
 }
