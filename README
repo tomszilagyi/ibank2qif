@@ -1,3 +1,35 @@
-1. Download account history files as XML from internetbank.
-2. run make, which will generate QIF files.
-3. import QIF files into GnuCash.
+Bank account transactions into GnuCash
+======================================
+
+This is what I use in order to get my bank account transaction
+histories into GnuCash. The procedure is common to all bank accounts:
+
+1. Download raw account history file from the bank's online interface.
+   Do this for each bank account (set the transaction query period as
+   appropriate; I download them each month).
+
+2. Run make, which will generate QIF files from all newly added raw files.
+
+3. Import the generated QIF files into GnuCash.
+
+The exact format of the raw account history file depends on the bank.
+The Makefile and the converter scripts run from therein support
+account history downloads from the following banks.
+
+
+Supported online banking interfaces
+-----------------------------------
+
+Budapest Bank:
+- download account transaction history in XLS
+- save it as bb_*.xls (my template is bb_ACCT-ID_YYYY_MM.xls)
+
+K&H Bank:
+- download account transaction history in CSV
+- save it as kh_*.csv (my template is kh_ACCT-ID_YYYY_MM.csv)
+
+
+Prerequisites
+-------------
+
+Linux, make, bash, awk
