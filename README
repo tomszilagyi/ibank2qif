@@ -28,8 +28,12 @@ K&H Bank:
 - download account transaction history in CSV
 - save it as kh_*.csv (my template is kh_ACCT-ID_YYYY_MM.csv)
 
+SEB:
+- download account transaction history in XSLX
+- save it as seb_*.xlsx (my template is seb_ACCT-ID_YYYY_MM.xlsx)
+
 
 Prerequisites
 -------------
 
-Linux, make, bash, awk
+Linux, make, bash, awk, gnumeric (for ssconvert)
