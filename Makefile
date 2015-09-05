@@ -20,3 +20,6 @@ seb_%.qif: seb_%.csv
 seb_%.csv: seb_%.xlsx
 	ssconvert $< $@
 	sh ./cropfile.sh $@ 6 0
+
+ica_%.qif: ica_%.csv
+	awk -f tab2qif_ica.awk < $< > $@

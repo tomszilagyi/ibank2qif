@@ -32,6 +32,10 @@ SEB:
 - download account transaction history in XSLX
 - save it as seb_*.xlsx (my template is seb_ACCT-ID_YYYY_MM.xlsx)
 
+ICA Bank:
+- download account transaction history in CSV
+- save it as ica_*.csv (my template is ica_ACCT-ID_YYYY_MM.csv)
+
 
 Prerequisites
 -------------
