@@ -1,25 +1,24 @@
-qifs := $(patsubst %.xls,%.qif,$(wildcard *.xls))
-qifs += $(patsubst %.csv,%.qif,$(wildcard *.csv))
-qifs += $(patsubst %.xlsx,%.qif,$(wildcard *.xlsx))
+dats := $(patsubst %.xls,%.dat,$(wildcard *.xls))
+dats += $(patsubst %.csv,%.dat,$(wildcard *.csv))
+dats += $(patsubst %.xlsx,%.dat,$(wildcard *.xlsx))
 
-all : $(qifs)
+all : $(dats)
 
-bp_%.qif: bp_%.csv
-	awk -f tab2qif_bb.awk < $< > $@
+bp_%.dat: bp_%.csv
+	awk -F '\t' -f bb.awk < $< > $@
 
 bp_%.csv: bp_%.xls
 	sh ./xls2csv_bb.sh < $< > $@
 	sh ./cropfile.sh $@ 3 3
 
-kh_%.qif: kh_%.csv
-	awk -f tab2qif_kh.awk < $< > $@
+kh_%.dat: kh_%.csv
+	awk -F '\t' -f kh.awk < $< > $@
 
-seb_%.qif: seb_%.csv
-	awk -f tab2qif_seb.awk < $< > $@
+seb_%.dat: seb_%.csv
+	awk -F ',' -f seb.awk < $< > $@
 
 seb_%.csv: seb_%.xlsx
 	ssconvert $< $@
-	sh ./cropfile.sh $@ 6 0
 
-ica_%.qif: ica_%.csv
-	awk -f tab2qif_ica.awk < $< > $@
+ica_%.dat: ica_%.csv
+	awk -F ';' -f ica.awk < $< > $@
