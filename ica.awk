@@ -14,7 +14,7 @@ BEGIN {
         Amount = $5
 
         printf "; %s\n", $0
-        cmd = sprintf("ledger -f ../ledger/ledger.dat xact %s \"%s\" %s%s", Date, Payee, Currency, Amount)
+        cmd = sprintf("ledger -f %s xact %s \"%s\" %s%s", LEDGER, Date, Payee, Currency, Amount)
         system(cmd)
         printf "\n"
 }

@@ -21,7 +21,7 @@ BEGIN {
         printf "; Code: %s\n", Code
         printf "; Payee: %s\n", Payee
         printf "; Amount: %s\n", Amount
-        cmd = sprintf("ledger -f ../ledger/ledger.dat xact %s \"%s\" %s%s", Date, Payee, Currency, Amount)
+        cmd = sprintf("ledger -f %s xact %s \"%s\" %s%s", LEDGER, Date, Payee, Currency, Amount)
         printf "; %s\n", cmd
         system(cmd)
         printf "\n"
