@@ -11,7 +11,11 @@ bp_%.dat: bp_%.csv
 	java -jar $(B2LJAR) -l $(LEDGER) -f $< -sa 3 -sz 2 -D 'yyyy/MM/dd' \
 	-r 3 -m 4 -t '%9!%1 %6 %7 %8' -a 'Assets:BB Folyószámla' -c HUF > $@
 
-seb_%.dat: seb_%.csv
+seb_esparkonto_%.dat: seb_esparkonto_%.csv
+	java -jar $(B2LJAR) -l $(LEDGER) -f $< -sa 5 -r 2 -m 4 -t '%3' \
+	-a 'Assets:SEB Enkla sparkontot' > $@
+
+seb_privatkonto_%.dat: seb_privatkonto_%.csv
 	java -jar $(B2LJAR) -l $(LEDGER) -f $< -sa 5 -r 2 -m 4 -t '%3' \
 	-a 'Assets:SEB Privatkonto' > $@
 
