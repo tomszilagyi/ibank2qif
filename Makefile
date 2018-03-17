@@ -5,7 +5,7 @@ dats += $(patsubst %.xlsx,%.dat,$(wildcard *.xlsx))
 all : $(dats)
 
 LEDGER ?= "/home/tom/doc/ledger/ledger.dat"
-B2LJAR ?= "/home/tom/bin/banks2ledger-1.0.2-standalone.jar"
+B2LJAR ?= "/home/tom/bin/banks2ledger-1.0.3-standalone.jar"
 
 bp_%.dat: bp_%.csv
 	java -jar $(B2LJAR) -l $(LEDGER) -f $< -sa 3 -sz 2 -D 'yyyy/MM/dd' \
