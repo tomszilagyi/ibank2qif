@@ -5,7 +5,7 @@ dats += $(patsubst %.xlsx,%.dat,$(wildcard *.xlsx))
 all : $(dats)
 
 LEDGER ?= "/home/tom/doc/ledger/ledger.dat"
-B2LJAR ?= "/home/tom/bin/banks2ledger-1.0.3-standalone.jar"
+B2LJAR ?= "/home/tom/bin/banks2ledger-1.1.0-standalone.jar"
 
 bp_%.dat: bp_%.csv
 	java -jar $(B2LJAR) -l $(LEDGER) -f $< -sa 3 -sz 2 -D 'yyyy/MM/dd' \
@@ -21,7 +21,7 @@ seb_privatkonto_%.dat: seb_privatkonto_%.csv
 
 ica_%.dat: ica_%.csv
 	java -jar $(B2LJAR) -l $(LEDGER) -f $< -F ';' -sa 1 -m 4 -t '%1' \
-	-a 'Assets:ICA Adrienn' > $@
+	-ds ',' -gs ' ' -a 'Assets:ICA Adrienn' > $@
 
 bp_%.csv: bp_%.xls
 	ssconvert $< $@
