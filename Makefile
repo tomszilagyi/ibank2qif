@@ -6,7 +6,7 @@ all : $(dats)
 
 LEDGER ?= "/home/tom/doc/ledger/ledger.dat"
 B2LHKS ?= "/home/tom/doc/ledger/hooks.clj"
-B2LJAR ?= "/home/tom/bin/banks2ledger-1.2.2-standalone.jar"
+B2LJAR ?= "/home/tom/bin/banks2ledger-1.3.0-standalone.jar"
 
 bp_%.dat: bp_%.csv
 	java -jar $(B2LJAR) -l $(LEDGER) -f $< -sa 3 -sz 2 -D 'yyyy/MM/dd' \
